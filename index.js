@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from '../modules/Login';
-import Dashboard from '../modules/Dashboard/';
+import * as S from './styled.js'
 
-const AppRouter = () => {
-    return (
-        <Router>
 
-            <Route exact path="/" component={Login} />
-            <Route path="/dashboard" component={Dashboard} />
+const Dashboard = () => {
 
-        </Router>
-    )
 
+  return (
+
+    <S.Title>Dashboard</S.Title>
+
+  );
 }
-export default AppRouter;
+
+
+
+export default Dashboard;
