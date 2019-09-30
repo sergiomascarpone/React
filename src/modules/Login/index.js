@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import * as S from './styled.js';
+import { onLogin } from '../../redux/action';
+import { connect } from 'react-redux'
 
 
 class App extends Component {
   state = {
-    email: '',
+    email: this.props.user.email || '',
     password: '',
     errors: {
       email: '',
@@ -98,9 +100,16 @@ class App extends Component {
         </div >
         <Link to='/dashboard'></Link>
       </S.Container>
-    )
+    );
   }
+}
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+const mapDispatchToProps = {
+  onLogin,
 }
 
 
-export default withRouter(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));
